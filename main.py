@@ -1,3 +1,4 @@
+# Importing neccessary libraires
 import streamlit as st
 from langchain_community.vectorstores import Chroma
 from medical_documents import docs
@@ -10,14 +11,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-# Create a vectorstore
+# Creating the vectorstore database
 vectorstore = Chroma.from_documents(docs, OpenAIEmbeddings())
 
 
-# Define document content description
+# Defining document content description
 document_content_description = "Brief summary of a medical condition"
 
-# Create a retriever
+# Retriever to retrieve the relevant info from doc
 llm = ChatOpenAI(temperature=0)
 retriever = SelfQueryRetriever.from_llm(
     llm,
@@ -38,7 +39,7 @@ if st.button("Diagnose"):
     triages = []
     diagno = []
 
-    # Display conditions, triage, and diagnosis
+    # Displaying conditions, triage, and diagnosis
     for i in range(len(answer)):
         condition = answer[i].metadata.get("condition")
         conditions.append(condition)
