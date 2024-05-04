@@ -10,14 +10,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-# Create a vectorstore
+# Creating vectorstore database using Chroma
 vectorstore = Chroma.from_documents(docs, OpenAIEmbeddings())
 
 
-# Define document content description
+# Defining document content description
 document_content_description = "Brief summary of a medical condition"
 
-# Create a retriever
+# Creating retriever to retrieve the relevant answers
 llm = ChatOpenAI(temperature=0)
 retriever = SelfQueryRetriever.from_llm(
     llm,
