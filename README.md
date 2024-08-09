@@ -15,8 +15,8 @@ This is a Streamlit application that allows users to enter their symptoms and re
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/medical-condition-diagnosis.git
-
+   git clone https://github.com/varayush007/Gastroenterology-Prototype.git
+   
 2. Navigate to the project directory:
    
    ```bash
